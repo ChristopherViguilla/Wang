@@ -1,0 +1,27 @@
+import simplegui
+
+#The character Wáng in Mandarin meaning "King"
+
+def draw_handler(canvas):
+    colors = [] 
+    colors.append(["#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505"]) 
+    colors.append(["#ff0505", "#000000", "#000000", "#000000", "#000000", "#000000", "#ff0505"]) 
+    colors.append(["#ff0505", "#ff0505", "#ff0505", "#000000", "#ff0505", "#ff0505", "#ff0505"]) 
+    colors.append(["#ff0505", "#000000", "#000000", "#000000", "#000000", "#000000", "#ff0505"]) 
+    colors.append(["#ff0505", "#ff0505", "#ff0505", "#000000", "#ff0505", "#ff0505", "#ff0505"]) 
+    colors.append(["#ff0505", "#000000", "#000000", "#000000", "#000000", "#000000", "#ff0505"]) 
+    colors.append(["#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505", "#ff0505"]) 
+
+    row = 0
+    col = 0
+    for r in range(1, 350, 50):
+        for c in range(1, 350, 50):
+            canvas.draw_polygon([(c, r), (c + 50, r), (c + 50, r + 50), (c, r + 50)], 1, "black", colors[row][col])   
+            col = col + 1
+        row = row + 1
+        col = 0
+
+#********** MAIN **********
+frame = simplegui.create_frame('Pic', 350, 350)
+frame.set_draw_handler(draw_handler)
+frame.start()
